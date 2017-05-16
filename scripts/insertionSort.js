@@ -1,12 +1,13 @@
 // Pseudocode
 //
-// Step 1 − If it is the first element, it is already sorted. return 1;
-// Step 2 − Pick next element
-// Step 3 − Compare with all elements in the sorted sub-list
-// Step 4 − Shift all the elements in the sorted sub-list that is
-// greater than the value to be sorted
-// Step 5 − Insert the value
-// Step 6 − Repeat until list is sorted
+// Step 1 − If this is the first value, it's assumed to already be sorted.
+// Step 2 − Get the next element.
+// Step 3 − Compare that element with all elements in the sorted sub-list
+//          (left of the marker).
+// Step 4 − Shift all the elements in the sorted sub-list (left of the marker)
+//          that are greater than the value to be sorted.
+// Step 5 − Insert the value at the marker location
+// Step 6 − Repeat until the list is sorted
 
 function insertionSort(array) {
   var markerPosition;
@@ -22,7 +23,6 @@ function insertionSort(array) {
       markerPosition = markerPosition - 1;
     }
 
-    // insert val at marker position
     array[markerPosition] = valToInsert;
 
   }
