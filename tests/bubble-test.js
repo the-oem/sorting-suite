@@ -16,7 +16,7 @@ describe('Bubble sort with filter', () => {
   });
 
   it('should sort a large number array', () => {
-    let randomArray = genRandNumArray(5000);
+    let randomArray = genRandNumArray(7000);
     let compSorted = Array.from(randomArray);
 
     compSorted = [...randomArray].sort((a, b) => a - b);
