@@ -1,11 +1,3 @@
-// Pseudocode
-//
-// Step 1 − If there is only one element in the array, it is already sorted,
-//          so return.
-// Step 2 − Divide the array up recursively into two halves until nothing
-//          else can be divided up.
-// Step 3 − Merge the smaller arrays into a new list in sorted order.
-
 function mergeSort(arr) {
   if (!(arr instanceof Array)) {
     return 'This is not an array!';
