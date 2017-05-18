@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import quickSort from '../scripts/quickSort.js'
 import genRandNumArray from '../scripts/genRandNumArray.js'
-import genRandCharString from '../scripts/genRandCharString.js'
+import genRandChar from '../scripts/genRandChar.js'
 
 describe('Quick sort with filter', () => {
   it('should be a function', () => {
@@ -15,26 +15,33 @@ describe('Quick sort with filter', () => {
     expect(sorted).to.deep.equal([1, 2, 3, 4, 5]);
   });
 
+  it('should sort an alphanumeric array', () => {
+    var stringArray = 'alphabet'.split('');
+
+    expect(quickSort(stringArray)).to.deep.equal(
+      ['a', 'a', 'b', 'e', 'h', 'l', 'p', 't']);
+  });
+
   it('should sort a large number array', () => {
-    var randomArray = genRandNumArray(100000);
+    var randomArray = genRandNumArray(150000);
     var compSorted = Array.from(randomArray);
 
     compSorted = [...randomArray].sort((a, b) => a - b);
     expect(quickSort(randomArray)).to.deep.equal(compSorted);
   });
 
-  it('should reject a string', () => {
-    var theString = 'alphabet';
+  it('should sort a large alphanumeric array', () => {
+    var stringArray = genRandChar(10000).split();
+    var alphaSorted = Array.from(stringArray);
 
-    expect(quickSort(theString).to.equal('This is not an array, fool!'));
+    alphaSorted = [...stringArray].sort((a, b) => a - b);
+    expect(quickSort(stringArray)).to.deep.equal(alphaSorted.sort());
   });
 
-  it.skip('should sort a large alphanumeric string', () => {
-    var alphaString = genRandCharString(10);
-    var alphaSorted = alphaString.slice(0, -1);
+  it('should reject a non-array', () => {
+    var theString = 'alphabet';
 
-    alphaSorted = [...alphaString].sort((a, b) => a - b);
-    expect(quickSort(alphaString)).to.deep.equal(alphaSorted.sort());
+    expect(quickSort(theString)).to.equal('This is not an array!');
   });
 
 });

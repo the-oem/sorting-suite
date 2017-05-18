@@ -1,6 +1,6 @@
 function quickSort(array) {
   if (!(array instanceof Array)) {
-    return 'This is not an array, fool!';
+    return 'This is not an array!';
   }
 
   let left = [];
