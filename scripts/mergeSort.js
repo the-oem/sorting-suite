@@ -7,6 +7,10 @@
 // Step 3 − Merge the smaller arrays into a new list in sorted order.
 
 function mergeSort(arr) {
+  if (!(arr instanceof Array)) {
+    return 'This is not an array!';
+  }
+
   if (arr.length === 1) {
     return arr;
   }
@@ -39,4 +43,4 @@ function merge(arr1, arr2) {
   return arr3;
 }
 
-export default { mergeSort, merge };
+export default mergeSort;
