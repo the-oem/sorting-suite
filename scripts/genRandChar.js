@@ -1,4 +1,4 @@
-function genRandChar(stringLength) {
+function genRandCharString(stringLength) {
   var text = '';
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -9,4 +9,4 @@ function genRandChar(stringLength) {
   return text;
 }
 
-export default genRandChar;
+export default genRandCharString;

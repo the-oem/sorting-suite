@@ -1,11 +1,11 @@
-import { expect, assert } from 'chai';
+import { expect } from 'chai';
 import bubbleSort from '../scripts/bubbleSort.js'
 import genRandNum from '../scripts/genRandNum.js'
 import genRandChar from '../scripts/genRandChar.js'
 
 describe('Bubble sort with filter', () => {
   it('should be a function', () => {
-    assert.isFunction(bubbleSort);
+    expect(bubbleSort).be.function;
   });
 
   it('should sort an number array', () => {
@@ -21,9 +21,6 @@ describe('Bubble sort with filter', () => {
     var compSorted = Array.from(randomArray);
 
     compSorted = [...randomArray].sort((a, b) => a - b);
-    // console.log(bubbleSort(randomArray));
-    // console.log(compSorted);
-
     expect(bubbleSort(randomArray)).to.deep.equal(compSorted);
   });
 
@@ -38,9 +35,7 @@ describe('Bubble sort with filter', () => {
     var alphaString = genRandChar(10);
     var alphaSorted = alphaString.slice(0, -1);
 
-    // console.log(alphaString, alphaSorted.sort());
     alphaSorted = [...alphaString].sort((a, b) => a - b);
-
     expect(bubbleSort(alphaString)).to.deep.equal(alphaSorted.sort());
   });
 
