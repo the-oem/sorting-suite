@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import insertionSort from '../scripts/insertionSort.js'
-import genRandNum from '../scripts/genRandNum.js'
+import genRandNumArray from '../scripts/genRandNumArray.js'
 import genRandChar from '../scripts/genRandChar.js'
 
 describe('Insertion sort with filter', () => {
@@ -8,32 +8,40 @@ describe('Insertion sort with filter', () => {
     expect(insertionSort).be.function;
   });
 
-  it('should sort a small number array', () => {
-    var array = [4, -10, 3, 9, -1, 34, 17];
+  it('should sort an number array', () => {
+    var numbers = [5, 3, 2, 4, 1];
+    var sorted = insertionSort(numbers);
 
-    expect(insertionSort(array)).to.deep.equal([-10, -1, 3, 4, 9, 17, 34]);
+    expect(sorted).to.deep.equal([1, 2, 3, 4, 5]);
+  });
+
+  it('should sort an alphanumeric array', () => {
+    var stringArray = 'alphabet'.split('');
+
+    expect(insertionSort(stringArray)).to.deep.equal(
+      ['a', 'a', 'b', 'e', 'h', 'l', 'p', 't']);
   });
 
   it('should sort a large number array', () => {
-    var array = genRandNum(50000);
-    var sortedArr = Array.from(array);
+    var randomArray = genRandNumArray(20000);
+    var compSorted = Array.from(randomArray);
 
-    sortedArr = [...array].sort((a, b) => a - b);
-    expect(insertionSort(array)).to.deep.equal(sortedArr);
+    compSorted = [...randomArray].sort((a, b) => a - b);
+    expect(insertionSort(randomArray)).to.deep.equal(compSorted);
   });
 
-  it('should sort a small alphanumeric array', () => {
-    var array = ['x', 'Z', 'c', 'R', 'A', 'a'];
+  it('should sort a large alphanumeric array', () => {
+    var stringArray = genRandChar(10000).split();
+    var alphaSorted = Array.from(stringArray);
 
-    expect(insertionSort(array)).to.deep.equal(['A', 'R', 'Z', 'a', 'c', 'x']);
+    alphaSorted = [...stringArray].sort((a, b) => a - b);
+    expect(insertionSort(stringArray)).to.deep.equal(alphaSorted.sort());
   });
 
-  it.skip('should sort a large alphanumeric array', () => {
-    var array = genRandChar(100);
-    var sortedArr = array.slice(0, -1);
+  it('should reject a non-array', () => {
+    var theString = 'alphabet';
 
-    sortedArr = [...array].sort((a, b) => a - b);
-    expect(insertionSort(array)).to.deep.equal(sortedArr.sort());
+    expect(insertionSort(theString)).to.equal('This is not an array!');
   });
 
 });

@@ -10,24 +10,20 @@
 // Step 6 − Repeat until the list is sorted
 
 function insertionSort(array) {
+  if (!(array instanceof Array)) {
+    return 'This is not an array!';
+  }
+
   for (let i = 0; i < array.length; i++) {
-    // console.log(`----- i = ${i} -----`);
-    // console.log(array);
-    // console.log(`set valToInsert to ${array[i]}, set marker to ${i}`);
     let valToInsert = array[i];
     let marker = i;
 
     while (marker > 0 && array[marker - 1] > valToInsert) {
-      // console.log(`++ update array[${marker}] to value ${array[marker]}`);
       [array[marker], array[marker - 1]] = [array[marker - 1], array[marker]];
-      // console.log(`++ update marker to ${marker - 1}`);
       marker -= 1;
     }
-    // console.log(`update array[${marker}] to value ${valToInsert}`);
     array[marker] = valToInsert;
-
   }
-
   return array;
 }
 
