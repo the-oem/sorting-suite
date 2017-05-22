@@ -1,35 +1,31 @@
-function quickSort(array) {
-  if (!(array instanceof Array)) {
+const quickSort = arr => {
+  if (!(arr instanceof Array)) {
     return 'This is not an array!';
   }
 
   let left = [];
   let right = [];
   let ce = 0;
-  let p = array.length - 1
-  let pVal = array[p]
+  let p = arr.length - 1
+  let pVal = arr[p]
   let we = 0;
 
-  while (array.length > 1) {
-    if (array[ce] >= array[p]) {
+  while (arr.length > 1) {
+    if (arr[ce] >= arr[p]) {
       ce++;
-
-    } else if (array[ce] < array[p]) {
-
-      [ array[ce], array[we] ] = [ array[we], array[ce] ];
+    } else if (arr[ce] < arr[p]) {
+      [ arr[ce], arr[we] ] = [ arr[we], arr[ce] ];
       we++;
       ce++
-
     } else {
-      [ array[p], array[we] ] = [ array[we], array[p] ]
+      [ arr[p], arr[we] ] = [ arr[we], arr[p] ]
       p = we;
-      right = array.splice(p + 1)
-      left = array.splice(0, p)
-
+      right = arr.splice(p + 1)
+      left = arr.splice(0, p)
       return [...quickSort(left), pVal, ...quickSort(right)]
     }
   }
-  return array
+  return arr
 }
 
 export default quickSort;

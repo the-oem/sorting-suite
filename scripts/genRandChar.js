@@ -1,8 +1,8 @@
-function genRandCharString(stringLength) {
-  var text = '';
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const genRandCharString = stringLength => {
+  let text = '';
+  const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-  for (var i = 0; i < stringLength; i++) {
+  for (let i = 0; i < stringLength; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
 

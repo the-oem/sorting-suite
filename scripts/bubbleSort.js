@@ -1,11 +1,11 @@
-function bubbleSort(array) {
-  var newArray = array;
+const bubbleSort = arr => {
+  var newArray = arr;
 
-  if (typeof array === 'string') {
-    newArray = newArray.split('');
+  if (typeof arr === 'string') {
+    newArray = [...newArray];
   }
-  for (var j = 0; j < newArray.length; j++) {
-    for (var i = 0; i < newArray.length; i++ ) {
+  for (let j = 0; j < newArray.length; j++) {
+    for (let i = 0; i < newArray.length; i++ ) {
       if (newArray[i] > newArray[i + 1]) {
         [newArray[i], newArray[i + 1]] = [newArray[i + 1], newArray[i]]
       }

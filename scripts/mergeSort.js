@@ -1,4 +1,4 @@
-function mergeSort(arr) {
+const mergeSort = arr => {
   if (!(arr instanceof Array)) {
     return 'This is not an array!';
   }
@@ -17,8 +17,8 @@ function mergeSort(arr) {
   return merge(arr1, arr2);
 }
 
-function merge(arr1, arr2) {
-  var arr3 = [];
+const merge = (arr1, arr2) => {
+  let arr3 = [];
 
   while (arr1.length > 0 && arr2.length > 0) {
     arr1[0] > arr2[0] ? arr3.push(arr2.shift()) : arr3.push(arr1.shift());

@@ -9,37 +9,34 @@ describe('Insertion sort with filter', () => {
   });
 
   it('should sort an number array', () => {
-    var numbers = [5, 3, 2, 4, 1];
-    var sorted = insertionSort(numbers);
+    const numbers = [5, 3, 2, 4, 1];
 
-    expect(sorted).to.deep.equal([1, 2, 3, 4, 5]);
+    expect(insertionSort(numbers)).to.deep.equal([1, 2, 3, 4, 5]);
   });
 
   it('should sort an alphanumeric array', () => {
-    var stringArray = 'alphabet'.split('');
+    const stringArray = [...'alphabet'];
 
     expect(insertionSort(stringArray)).to.deep.equal(
       ['a', 'a', 'b', 'e', 'h', 'l', 'p', 't']);
   });
 
   it('should sort a large number array', () => {
-    var randomArray = genRandNumArray(20000);
-    var compSorted = Array.from(randomArray);
+    const randomArray = genRandNumArray(20000, 1, 10000);
+    const compSorted = [...randomArray].sort((a, b) => a - b);
 
-    compSorted = [...randomArray].sort((a, b) => a - b);
     expect(insertionSort(randomArray)).to.deep.equal(compSorted);
   });
 
   it('should sort a large alphanumeric array', () => {
-    var stringArray = genRandChar(10000).split();
-    var alphaSorted = Array.from(stringArray);
+    const stringArray = genRandChar(10000).split();
+    const alphaSorted = [...stringArray].sort((a, b) => a - b);
 
-    alphaSorted = [...stringArray].sort((a, b) => a - b);
     expect(insertionSort(stringArray)).to.deep.equal(alphaSorted.sort());
   });
 
   it('should reject a non-array', () => {
-    var theString = 'alphabet';
+    const theString = 'alphabet';
 
     expect(insertionSort(theString)).to.equal('This is not an array!');
   });
